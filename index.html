@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +11,6 @@
   <meta http-equiv="Expires" content="0" />
   <link rel="manifest" href="manifest.json" />
   <link rel="apple-touch-icon" href="icon.png">
-
-
   <title>Weekly Bike Gym Plan</title>
   <style>
     body {
@@ -36,9 +33,6 @@
       color: #ffffff;
       border-bottom: 2px solid #333;
       padding-bottom: 0.3rem;
-    }
-    ul {
-      padding-left: 1.5rem;
     }
     .section {
       background-color: #1e1e1e;
@@ -67,57 +61,114 @@
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     }
+    details {
+      background-color: #1e1e1e;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      padding: 0.8rem;
+    }
+    summary {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #00ffcc;
+      cursor: pointer;
+    }
+    #todayPlan {
+      background: #242424;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.25rem;
+      color: #ffffff;
+      border: 1px solid #333;
+    }
   </style>
 </head>
 <body>
   <h1>🚴‍♀️ Weekly Gym Plan</h1>
-  <p style="text-align: center;"><strong>Days:</strong> Monday, Wednesday, Friday<br>
-  <strong>Goal:</strong> Cardio fitness, fat burn, endurance, recovery</p>
+  <div id="todayPlan">Loading today's plan...</div>
 
-  <div class="section">
-    <h2>Week 1</h2>
-    <p><span class="highlight">Mon – LISS (Endurance Ride)</span><br>
-    35–45 min steady pace, moderate resistance (~4–5/10), RPM 80–90</p>
+  <details>
+    <summary>Week 1</summary>
+    <div class="section">
+      <p><span class="highlight">Mon – LISS (Endurance Ride)</span><br>
+      35–45 min steady pace, moderate resistance (~4–5/10), RPM 80–90</p>
 
-    <p><span class="highlight">Wed – HIIT (Intervals)</span><br>
-    5 min warm-up, then:<br>
-    1 min hard (~8/10), 2 min easy (~3/10) x6 rounds<br>
-    5 min cool-down</p>
+      <p><span class="highlight">Wed – HIIT (Intervals)</span><br>
+      5 min warm-up, then:<br>
+      1 min hard (~8/10), 2 min easy (~3/10) x6 rounds<br>
+      5 min cool-down</p>
 
-    <p><span class="highlight">Fri – LISS (Recovery Ride)</span><br>
-    30–40 min light/moderate resistance, smooth RPM, breath-focused</p>
-  </div>
+      <p><span class="highlight">Fri – LISS (Recovery Ride)</span><br>
+      30–40 min light/moderate resistance, smooth RPM, breath-focused</p>
+    </div>
+  </details>
 
-  <div class="section">
-    <h2>Week 2</h2>
-    <p><span class="highlight">Mon – HIIT (Short Sprints)</span><br>
-    5 min warm-up, then:<br>
-    30 sec sprint (~9/10), 90 sec easy (~3/10) x8 rounds<br>
-    5 min cool-down</p>
+  <details>
+    <summary>Week 2</summary>
+    <div class="section">
+      <p><span class="highlight">Mon – HIIT (Short Sprints)</span><br>
+      5 min warm-up, then:<br>
+      30 sec sprint (~9/10), 90 sec easy (~3/10) x8 rounds<br>
+      5 min cool-down</p>
 
-    <p><span class="highlight">Wed – LISS (Steady)</span><br>
-    40 min easy/moderate pace, maintain smooth cadence</p>
+      <p><span class="highlight">Wed – LISS (Steady)</span><br>
+      40 min easy/moderate pace, maintain smooth cadence</p>
 
-    <p><span class="highlight">Fri – HIIT (Pyramids)</span><br>
-    5 min warm-up, then:<br>
-    30s / 1min / 2min work with equal recovery time<br>
-    Repeat pyramid twice<br>
-    5 min cool-down</p>
-  </div>
+      <p><span class="highlight">Fri – HIIT (Pyramids)</span><br>
+      5 min warm-up, then:<br>
+      30s / 1min / 2min work with equal recovery time<br>
+      Repeat pyramid twice<br>
+      5 min cool-down</p>
+    </div>
+  </details>
 
-  <div class="section">
-    <h2>🧘‍♂️ Post-Ride Stretch Routine</h2>
-    <p>Hold each stretch 20–30 sec/side:</p>
-    <ul>
-      <li>Quad stretch</li>
-      <li>Hamstring stretch</li>
-      <li>Calf stretch</li>
-      <li>Hip flexor lunge</li>
-      <li>Figure four Stretch</li>
-      <li>Child's Pose</li>
-    </ul>
-    <img src="stretches.png" alt="Stretch Diagrams" class="stretch-img">
-  </div>
+  <details>
+    <summary>🧘‍♂️ Post-Ride Stretch Routine</summary>
+    <div class="section">
+      <p>Hold each stretch 20–30 sec/side:</p>
+      <ul>
+        <li>Quadriceps stretch</li>
+        <li>Hamstring stretch</li>
+        <li>Calf stretch</li>
+        <li>Hip flexor lunge</li>
+        <li>Figure four (glute) stretch</li>
+        <li>Child’s pose</li>
+      </ul>
+      <img src="stretches.png" alt="Stretch Diagrams" class="stretch-img">
+    </div>
+  </details>
 
+  <p class="footer">Tip: Add this page to your iPhone Home Screen for quick access!</p>
+
+  <script>
+    const startDate = new Date('2025-04-07T00:00:00');
+    const today = new Date();
+    const timezoneOffset = 0;
+    today.setHours(today.getHours() + timezoneOffset);
+
+    const diffDays = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+    const weekNumber = Math.floor(diffDays / 7) + 1;
+    const dayOfWeek = today.getDay(); // 0=Sunday, 1=Monday...
+
+    const workouts = {
+      1: {
+        1: "Week 1 – Monday: LISS (Endurance Ride)<br>35–45 min steady pace, moderate resistance (~4–5/10), RPM 80–90",
+        3: "Week 1 – Wednesday: HIIT (Intervals)<br>5 min warm-up, 1 min hard (~8/10), 2 min easy (~3/10) x6, 5 min cool-down",
+        5: "Week 1 – Friday: LISS (Recovery Ride)<br>30–40 min light/moderate resistance, breath-focused"
+      },
+      2: {
+        1: "Week 2 – Monday: HIIT (Short Sprints)<br>5 min warm-up, 30 sec sprint (~9/10), 90 sec easy x8, 5 min cool-down",
+        3: "Week 2 – Wednesday: LISS (Steady)<br>40 min easy/moderate pace",
+        5: "Week 2 – Friday: HIIT (Pyramids)<br>5 min warm-up, 30s/1min/2min work, equal recovery, repeat 2x"
+      }
+    };
+
+    const week = (weekNumber % 2) === 0 ? 2 : 1;
+    const plan = workouts[week][dayOfWeek];
+
+    document.getElementById("todayPlan").innerHTML = plan || "Rest Day – no workout today!";
+  </script>
 </body>
 </html>
